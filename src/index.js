@@ -5,7 +5,7 @@ class BubblesPainter {
       "--min-radius",
       "--max-radius",
       "--num-circles",
-      "--is-bg-dark",
+      "--is-dark",
     ];
   }
 
@@ -15,7 +15,7 @@ class BubblesPainter {
       "--min-radius",
       "--max-radius",
       "--num-circles",
-      "--is-bg-dark",
+      "--is-dark",
     ].map((prop) => {
       if (!props.get(prop).length) {
         return undefined;
@@ -27,8 +27,8 @@ class BubblesPainter {
           .toString()
           .split(",")
           .map((color) => color.trim());
-      } else if (prop == "--is-bg-dark") {
-        return props.get(prop).toString();
+      } else if (prop == "--is-dark") {
+        return props.get(prop).toString().trim();
       } else {
         return parseInt(props.get(prop).toString());
       }
@@ -39,10 +39,15 @@ class BubblesPainter {
     const [
       colors = ["#007C8E", "#7940c1"],
       minRadius = 10,
-      maxRadius = 80,
-      numCircles = 30,
+      maxRadius = 60,
+      numCircles = 20,
       isDark = "false",
     ] = this.parseProps(props);
+
+    c.beginPath();
+    c.fillStyle = isDark === "true" ? "rgb(0,0,0)" : "rgb(255,255,255)";
+    c.fillRect(0, 0, w, h);
+    c.closePath();
 
     for (let i = 0, max = numCircles; i < max; i++) {
       this.drawCircle(c, {
