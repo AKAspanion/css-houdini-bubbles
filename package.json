@@ -11,8 +11,8 @@
     "build": "microbundle --entry src/index.js --output build/bubbles.js --no-pkg-main --format modern --no-sourcemap",
     "prepublish": "npm run build",
     "preserve": "npm run build",
-    "dev": "watch 'npm run build' ./src",
     "serve": "nodemon --delay 1000ms ./server.js",
+    "dev": "watch 'npm run build' ./src ./example",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
