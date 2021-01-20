@@ -8,7 +8,7 @@ const app = express();
 // Run static server
 app.set(2108);
 app.use("/", express.static(path.join(__dirname, "example")));
-app.use("/js", express.static(path.join(__dirname, "build")));
+app.use("/js", express.static(path.join(__dirname, "dist")));
 app.listen(2108);
 
 console.log("🚀 Paint worklet test up and running at http://localhost:2108/");
