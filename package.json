@@ -1,0 +1,50 @@
+{
+  "name": "css-houdini-bubbles",
+  "version": "0.0.1",
+  "description": "CSS Houdini Background Bubbles",
+  "source": "src/index.js",
+  "main": "build/bubbles.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "build": "microbundle --entry src/index.js --output build/bubbles.js --no-pkg-main --format modern --no-sourcemap",
+    "prepublish": "npm run build",
+    "preserve": "npm run build",
+    "dev": "watch 'npm run build' ./src",
+    "serve": "nodemon --delay 1000ms ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKAspanion/css-houdini-bubbles.git"
+  },
+  "keywords": [
+    "houdini",
+    "css-houdini",
+    "css-houdini-bubbles",
+    "css",
+    "bubbles",
+    "paintworklet",
+    "paint",
+    "worklet",
+    "background"
+  ],
+  "author": {
+    "name": "Ankit Kumar Pandit",
+    "email": "panditankit1995@gmail.com",
+    "twitter": "",
+    "web": "https://ankitpandit.xyz"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AKAspanion/css-houdini-bubbles/issues"
+  },
+  "homepage": "https://github.com/AKAspanion/css-houdini-bubbles#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "microbundle": "^0.13.0",
+    "nodemon": "^2.0.7",
+    "watch": "^1.0.2"
+  }
+}
