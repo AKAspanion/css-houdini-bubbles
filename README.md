@@ -6,8 +6,8 @@ A CSS Houdini Paint Worklet to draw background bubbles.
 
 ## Usage
 
-### 1. Getting `css-houdini-bubbles`
-### Installing using UNPKG
+### 1. Getting started
+#### Installing using UNPKG
 Using CDN is the easiest way to add the library: 
 
 ```javascript
