@@ -36,7 +36,7 @@ class BubblesPainter {
   }
 
   paint(c, { width: w, height: h }, props) {
-    const [
+    let [
       colors = ["#007C8E", "#7940c1"],
       minRadius = 10,
       maxRadius = 60,
@@ -48,6 +48,10 @@ class BubblesPainter {
     c.fillStyle = isDark === "yes" ? "rgb(0,0,0)" : "rgb(255,255,255)";
     c.fillRect(0, 0, w, h);
     c.closePath();
+
+    minRadius = this._normalize(minRadius, 10);
+    maxRadius = this._normalize(maxRadius, 60);
+    numCircles = this._normalize(numCircles, 20);
 
     for (let i = 0, max = numCircles; i < max; i++) {
       this.drawCircle(c, {
@@ -91,18 +95,32 @@ class BubblesPainter {
   }
 
   drawGradient(ctx, { x, y, r, color, isDark }) {
-    const grd = ctx.createRadialGradient(x, y, 0, x, y, r);
-    grd.addColorStop(
-      0.7,
-      `rgba(${isDark === "yes" ? "0,0,0" : "255,255,255"},0)`
-    );
-    grd.addColorStop(1, color);
+    try {
+      const grd = ctx.createRadialGradient(x, y, 0, x, y, r);
+      grd.addColorStop(
+        0.7,
+        `rgba(${isDark === "yes" ? "0,0,0" : "255,255,255"},0)`
+      );
+      grd.addColorStop(1, color);
 
-    return grd;
+      return grd;
+    } catch (error) {
+      return this.drawGradient(ctx, {
+        x,
+        y,
+        r,
+        isDark,
+        color: isDark === "yes" ? "white" : "black",
+      });
+    }
   }
 
   _rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  _normalize(val, fallback) {
+    return isNaN(val) ? fallback : val;
   }
 }
 
