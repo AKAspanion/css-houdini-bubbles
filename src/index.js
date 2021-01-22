@@ -1,33 +1,33 @@
 class BubblesPainter {
   static get inputProperties() {
     return [
-      "--colors",
-      "--min-radius",
-      "--max-radius",
-      "--num-bubbles",
-      "--is-dark",
+      "--bubbles-colors",
+      "--bubbles-min-radius",
+      "--bubbles-max-radius",
+      "--bubbles-total-num",
+      "--bubbles-is-dark",
     ];
   }
 
   parseProps(props) {
     return [
-      "--colors",
-      "--min-radius",
-      "--max-radius",
-      "--num-bubbles",
-      "--is-dark",
+      "--bubbles-colors",
+      "--bubbles-min-radius",
+      "--bubbles-max-radius",
+      "--bubbles-total-num",
+      "--bubbles-is-dark",
     ].map((prop) => {
       if (!props.get(prop).length) {
         return undefined;
       }
 
-      if (prop == "--colors") {
+      if (prop === "--bubbles-colors") {
         return props
           .get(prop)
           .toString()
           .split(",")
           .map((color) => color.trim());
-      } else if (prop == "--is-dark") {
+      } else if (prop === "--bubbles-is-dark") {
         return props.get(prop).toString().trim();
       } else {
         return parseInt(props.get(prop).toString());
