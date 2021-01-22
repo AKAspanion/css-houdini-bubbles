@@ -4,7 +4,7 @@ class BubblesPainter {
       "--colors",
       "--min-radius",
       "--max-radius",
-      "--num-circles",
+      "--num-bubbles",
       "--is-dark",
     ];
   }
@@ -14,7 +14,7 @@ class BubblesPainter {
       "--colors",
       "--min-radius",
       "--max-radius",
-      "--num-circles",
+      "--num-bubbles",
       "--is-dark",
     ].map((prop) => {
       if (!props.get(prop).length) {
@@ -41,11 +41,11 @@ class BubblesPainter {
       minRadius = 10,
       maxRadius = 60,
       numCircles = 20,
-      isDark = "false",
+      isDark = "no",
     ] = this.parseProps(props);
 
     c.beginPath();
-    c.fillStyle = isDark === "true" ? "rgb(0,0,0)" : "rgb(255,255,255)";
+    c.fillStyle = isDark === "yes" ? "rgb(0,0,0)" : "rgb(255,255,255)";
     c.fillRect(0, 0, w, h);
     c.closePath();
 
@@ -94,7 +94,7 @@ class BubblesPainter {
     const grd = ctx.createRadialGradient(x, y, 0, x, y, r);
     grd.addColorStop(
       0.7,
-      `rgba(${isDark === "true" ? "0,0,0" : "255,255,255"},0)`
+      `rgba(${isDark === "yes" ? "0,0,0" : "255,255,255"},0)`
     );
     grd.addColorStop(1, color);
 
