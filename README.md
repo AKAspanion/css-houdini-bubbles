@@ -1,12 +1,12 @@
 # CSS Houdini Bubbles
-
-A CSS Houdini Paint Worklet to draw background bubbles.
+[![NPM](https://img.shields.io/npm/v/css-houdini-bubbles.svg)](https://www.npmjs.com/css-houdini-bubbles) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AKAspanion/ui-neumorphism/blob/master/LICENSE)
+> A CSS Houdini Paint Worklet to draw background bubbles.
 
 ![CSS Houdini Bubbles](https://github.com/AKAspanion/css-houdini-bubbles/blob/main/assets/demo.png?raw=true)
 
 ## Usage
 
-### 1. Getting `css-houdini-bubbles`
+### 1. Getting Started
 ### Installing using UNPKG
 Using CDN is the easiest way to add the library: 
 
